@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/mori/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.2.1_a45e65d6f913eb1498037e48755feaec7a72d1cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a9e35a1818d67ec275d84ee3464c6cbf60f1801c">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_d0b4d041d02fb2ffba7c517f870403f6cdb07fb5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.2.1_2dcc5743fb6336f663050325c10ae58899f80463/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.8.0_e72da9349e034d0fa127d9933c7ff3d252f87bf5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.2.1_9ed88c96669f613a058b5108513d565bc16b1061/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.3.0_08ce1168e60bf2f4a91190a8887ba3e266f9cf4f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.2.1_8b1e9a8b7ec7422d0a0a16e79853886db3caf081/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.2.1_c4b8fcec12226043c40bd438d6f65e3c8579074a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.2.1_a57a338c42a2375da443836b766ffc5c134fe2e5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.2.1_fd352369f2143c201cd6c0057d053948a7afe900/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.2.1_c3aa1db6f43072079cd27d265f9ccb09bc903d66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5bfa7e54faa495d56b2f89cff74951b5b6fa73c">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_e2142495418b9c5aee1e31dbd9bf32d211ded14f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mori/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="/Users/mori/AndroidStudioProjects/WeatherHeadNotify/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.1.0_498469317a037b60b87fa638c7490d5a8228a5be/classes.dex" />
+    </item>
+
+</items>
