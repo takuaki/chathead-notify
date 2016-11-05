@@ -10,19 +10,4 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="weatherheadnotify.tmori.com.weatherheadnotify.MainActivity">
-
-    <weatherheadnotify.tmori.com.weatherheadnotify.ChatHeadLayout
-            android:id="@+id/chathead_layout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@android:color/black">
-    </weatherheadnotify.tmori.com.weatherheadnotify.ChatHeadLayout>
-    <!--android.support.design.widget.Snackbar.SnackbarLayout android:layout_width="match_parent"
-                                                           android:layout_height="50dp"></android.support.design.widget.Snackbar.SnackbarLayout-->
-    <!--weatherheadnotify.tmori.com.weatherheadnotify.WeatherHeadLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        custom:weather_icon="@mipmap/ic_launcher"
-        custom:weather_text="sunny"/-->
-
 </RelativeLayout>

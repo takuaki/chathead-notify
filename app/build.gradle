@@ -12,7 +12,6 @@ ext {
 
     //espresso
     espressoVersion = '2.2.2'
-
 }
 
 android {

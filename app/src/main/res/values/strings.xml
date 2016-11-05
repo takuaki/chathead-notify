@@ -3,4 +3,7 @@
     <string name="text_weather_description">sunny</string>
 
     <string name="weather_unknown">unknown</string>
+
+    <string name="text_notify">notificatoin</string>
+    <string name="text_action_button">reply</string>
 </resources>

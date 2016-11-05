@@ -4,4 +4,8 @@
         <attr name="weather_icon" format="reference"/>
         <attr name="weather_text" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="ChatHeadLayout">
+
+    </declare-styleable>
 </resources>

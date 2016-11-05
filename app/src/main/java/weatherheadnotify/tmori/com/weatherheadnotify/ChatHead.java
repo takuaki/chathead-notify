@@ -1,8 +1,11 @@
 package weatherheadnotify.tmori.com.weatherheadnotify;
 
-import android.animation.Animator;
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
-import android.util.Log;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -24,50 +27,55 @@ public class ChatHead {
     private ChatHeadStateListener mHeadStateListener;
     private ViewPropertyAnimator mPropertyAnimator;
 
+    private final long duration;
 
-    public ChatHead(final ChatHeadLayout layout, long durationMillis) {
+    private ChatHeadLayout mView;
+    private ViewGroup mTargetView;
 
-        mPropertyAnimator = layout.animate();
-        mPropertyAnimator.setDuration(durationMillis);
-        mPropertyAnimator.translationX(2000);
-        mPropertyAnimator.setListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                Log.d(TAG, "onAnimationStart");
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                Log.d(TAG, "onAnimationEnd");
-                mHeadStateListener.isShown();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
+    public ChatHead(@NonNull View view, final int res, final long duration) {
+        Context con = view.getContext();
+        this.duration = duration;
+        mTargetView = findSuitableParent(view);
+        LayoutInflater inflater = LayoutInflater.from(con);
+        mView = (ChatHeadLayout) inflater.inflate(res, mTargetView, false);
     }
 
-
-    public void setStateListener(final ChatHeadStateListener listener) {
-        mHeadStateListener = listener;
+    public ChatHeadLayout getLayoutView() {
+        return mView;
     }
 
-    public void start() {
-        Log.d(TAG, "startAnimation");
-        mPropertyAnimator.start();
+    /*public ChatHead(@NonNull View view, ChatHeadLayout layout, final long duration) {
+        this.duration = duration;
+        mTargetView = findSuitableParent(view);
+        mView = layout;
+    }*/
+
+    public void show() {
+
+        mTargetView.addView(mView, mView.getLayoutParams());
+        if (ViewCompat.isLaidOut(mView)) {
+            startAnimate();
+        } else {
+            mView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    startAnimate();
+                    mView.removeOnLayoutChangeListener(this);
+                }
+            });
+        }
     }
 
-
-    public static ChatHead make(ChatHeadLayout layout, long durationMillis) {
-        return new ChatHead(layout, durationMillis);
+    private void startAnimate() {
+        //move right
+        ViewCompat.setTranslationX(mView, mView.getWidth());
+        ViewCompat.animate(mView)
+                .translationX(0f)
+                .setInterpolator(new FastOutSlowInInterpolator())
+                .setDuration(duration)
+                .start();
     }
+
 
     private static ViewGroup findSuitableParent(View view) {
         ViewGroup fallback = null;

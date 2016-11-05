@@ -37,7 +37,7 @@ public class ChatHeadTest {
     @Before
     public void registerIdlingResource() {
         mIdlingResource = mActivityTestRule.getActivity().getIdlingResource();
-        //onView(withId(R.id.chathead_layout)).check(ViewAssertions.matches(isDisplayed()));
+        //onView(withId(R.id.chathead_layout_include)).check(ViewAssertions.matches(isDisplayed()));
         Espresso.registerIdlingResources(mIdlingResource);
     }
 
