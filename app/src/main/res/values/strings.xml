@@ -4,6 +4,6 @@
 
     <string name="weather_unknown">unknown</string>
 
-    <string name="text_notify">notificatoin</string>
+    <string name="text_notify">notification</string>
     <string name="text_action_button">reply</string>
 </resources>

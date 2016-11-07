@@ -2,6 +2,7 @@
 <weatherheadnotify.tmori.com.weatherheadnotify.ChatHeadLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         class="weatherheadnotify.tmori.com.weatherheadnotify.ChatHeadLayout"
+        android:id="@+id/weatherheadnotify"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="top|end">

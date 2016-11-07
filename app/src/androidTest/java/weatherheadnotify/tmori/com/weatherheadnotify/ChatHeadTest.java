@@ -1,6 +1,5 @@
 package weatherheadnotify.tmori.com.weatherheadnotify;
 
-import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -37,13 +36,12 @@ public class ChatHeadTest {
     @Before
     public void registerIdlingResource() {
         mIdlingResource = mActivityTestRule.getActivity().getIdlingResource();
-        //onView(withId(R.id.chathead_layout_include)).check(ViewAssertions.matches(isDisplayed()));
         Espresso.registerIdlingResources(mIdlingResource);
     }
 
     @Test
     public void testContainChatHead() throws Exception {
-        onView(withId(R.id.chathead_layout)).check(ViewAssertions.matches(Matchers.not(isDisplayed())));
+        onView(withId(R.id.weatherheadnotify)).check(ViewAssertions.matches(isDisplayed()));
     }
 
     @After

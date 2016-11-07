@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,7 @@ import android.widget.FrameLayout;
  * Created by mori on 11/3/16.
  */
 
-public class ChatHead {
+public class ChatHead implements ViewPropertyAnimatorListener {
 
 
     interface ChatHeadStateListener {
@@ -38,17 +40,17 @@ public class ChatHead {
         mTargetView = findSuitableParent(view);
         LayoutInflater inflater = LayoutInflater.from(con);
         mView = (ChatHeadLayout) inflater.inflate(res, mTargetView, false);
+        //mTargetView.addView(mView, mView.getLayoutParams());
     }
 
     public ChatHeadLayout getLayoutView() {
         return mView;
     }
 
-    /*public ChatHead(@NonNull View view, ChatHeadLayout layout, final long duration) {
-        this.duration = duration;
-        mTargetView = findSuitableParent(view);
-        mView = layout;
-    }*/
+    public void setHeadStateListener(ChatHeadStateListener listener) {
+        mHeadStateListener = listener;
+    }
+
 
     public void show() {
 
@@ -68,10 +70,12 @@ public class ChatHead {
 
     private void startAnimate() {
         //move right
+        Log.d(TAG, "startAnimate");
         ViewCompat.setTranslationX(mView, mView.getWidth());
         ViewCompat.animate(mView)
                 .translationX(0f)
                 .setInterpolator(new FastOutSlowInInterpolator())
+                .setListener(this)
                 .setDuration(duration)
                 .start();
     }
@@ -105,5 +109,24 @@ public class ChatHead {
         return fallback;
     }
 
+    //ViewPropertyAnimatorListener
 
+
+    @Override
+    public void onAnimationStart(View view) {
+        Log.d(TAG, "onAnimationStart");
+    }
+
+    @Override
+    public void onAnimationEnd(View view) {
+        Log.d(TAG, "onAnimationEnd");
+        if (mHeadStateListener != null) {
+            mHeadStateListener.isShown();
+        }
+    }
+
+    @Override
+    public void onAnimationCancel(View view) {
+        Log.d(TAG, "onAnimationCancel");
+    }
 }
