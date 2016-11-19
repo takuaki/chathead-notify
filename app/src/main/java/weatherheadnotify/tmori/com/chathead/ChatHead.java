@@ -1,11 +1,15 @@
 package weatherheadnotify.tmori.com.chathead;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -27,7 +31,7 @@ import static android.view.View.GONE;
  * Created by mori on 11/3/16.
  */
 
-public class ChatHead implements ViewPropertyAnimatorListener {
+public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListener {
 
 
     interface ChatHeadStateListener {
@@ -74,6 +78,11 @@ public class ChatHead implements ViewPropertyAnimatorListener {
         });
     }
 
+    @Nullable
+    private Intent mIntent;
+
+    private final Context mContext;
+
     private ChatHeadStateListener mHeadStateListener;
 
     private final
@@ -84,11 +93,13 @@ public class ChatHead implements ViewPropertyAnimatorListener {
     private ViewGroup mTargetView;
 
     public ChatHead(@NonNull View view, final int res, @Duration int duration) {
-        Context con = view.getContext();
+        mContext = view.getContext();
         this.duration = duration;
         mTargetView = findSuitableParent(view);
-        LayoutInflater inflater = LayoutInflater.from(con);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
         mView = (ChatHeadLayout) inflater.inflate(res, mTargetView, false);
+
+        mView.setOnClickListener(this);
     }
 
     public ChatHeadLayout getLayoutView() {
@@ -114,6 +125,21 @@ public class ChatHead implements ViewPropertyAnimatorListener {
                 }
             });
         }
+    }
+
+    public void setLaunchApplication(Context con, String packageName) {
+        PackageManager pm = con.getPackageManager();
+        Intent intent = pm.getLaunchIntentForPackage(packageName);
+        if (intent != null) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mIntent = intent;
+        }
+    }
+
+    public void setLaunchActivity(Context con, Class<? extends Activity> activity) {
+        Intent intent = new Intent(con, activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mIntent = intent;
     }
 
     /**
@@ -228,7 +254,12 @@ public class ChatHead implements ViewPropertyAnimatorListener {
         return fallback;
     }
 
-    //ViewPropertyAnimatorListener
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == mView.getId() && mIntent != null) {
+            mContext.startActivity(mIntent);
+        }
+    }
 
 
     @Override

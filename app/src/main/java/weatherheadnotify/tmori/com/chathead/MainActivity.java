@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity implements ChatHead.ChatHead
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
         ChatHead chatHead = new ChatHead(root, R.layout.chathead_layout, ChatHead.DURATION_LONG);
         chatHead.setHeadStateListener(this);
-
-        ChatHeadLayout chatHeadLayout = chatHead.getLayoutView();
+        chatHead.setLaunchActivity(this, LaunchableActivity.class);
 
         chatHead.show();
+
     }
 
 
