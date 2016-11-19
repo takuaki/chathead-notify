@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import weatherheadnotify.tmori.com.chathead.espressoIdling.MyIdlingResource;
 
@@ -30,12 +28,6 @@ public class MainActivity extends AppCompatActivity implements ChatHead.ChatHead
         chatHead.setHeadStateListener(this);
 
         ChatHeadLayout chatHeadLayout = chatHead.getLayoutView();
-        ((Button) chatHeadLayout.findViewById(R.id.action_button)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick");
-            }
-        });
 
         chatHead.show();
     }

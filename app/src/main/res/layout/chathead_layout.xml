@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <weatherheadnotify.tmori.com.chathead.ChatHeadLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         class="weatherheadnotify.tmori.com.chathead.ChatHeadLayout"
+        android:background="#666666"
         android:id="@+id/weatherheadnotify"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_gravity="top|end">
-    <TextView android:id="@+id/chathead_text"
-              android:layout_width="130dp"
-              android:layout_height="match_parent"
-              android:gravity="center_vertical"
-              android:textAlignment="center"
-              android:textSize="20sp"
-              android:text="@string/text_notify"
-              android:singleLine="true"
-              style="?attr/titleTextStyle"/>
-    <Button android:id="@+id/action_button"
-            android:layout_height="match_parent"
-            android:layout_width="70dp"
-            android:layout_gravity="end"
-            android:text="@string/text_action_button"
-            android:textSize="14sp"
-            style="?attr/borderlessButtonStyle"/>
+        android:layout_gravity="top|end"
+        custom:chathead_icon="@mipmap/ic_launcher"
+        custom:chathead_text="@string/text_custom_notify"
+        custom:chathead_text_color="@android:color/holo_blue_dark">
 </weatherheadnotify.tmori.com.chathead.ChatHeadLayout>
 
 
