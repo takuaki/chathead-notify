@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements ChatHead.ChatHead
         mIdlingResource.setIdleState(false);
 
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-        ChatHead chatHead = new ChatHead(root, R.layout.chathead_layout, 3000);
+        ChatHead chatHead = new ChatHead(root, R.layout.chathead_layout, ChatHead.DURATION_LONG);
         chatHead.setHeadStateListener(this);
 
         ChatHeadLayout chatHeadLayout = chatHead.getLayoutView();
@@ -38,13 +38,12 @@ public class MainActivity extends AppCompatActivity implements ChatHead.ChatHead
         });
 
         chatHead.show();
-
     }
 
 
     @Override
     public void isShown() {
-        Log.d(TAG,"isShown");
+        Log.d(TAG, "isShown");
         mIdlingResource.setIdleState(true);
     }
 
