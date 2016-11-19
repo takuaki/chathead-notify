@@ -1,4 +1,4 @@
-package weatherheadnotify.tmori.com.weatherheadnotify;
+package weatherheadnotify.tmori.com.chathead;
 
 import android.content.Context;
 import android.content.res.TypedArray;

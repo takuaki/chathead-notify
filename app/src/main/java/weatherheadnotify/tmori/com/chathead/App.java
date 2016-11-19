@@ -1,12 +1,12 @@
-package weatherheadnotify.tmori.com.weatherheadnotify;
+package weatherheadnotify.tmori.com.chathead;
 
 import android.app.Application;
 
 import javax.inject.Singleton;
 
-import weatherheadnotify.tmori.com.weatherheadnotify.di.component.AppComponent;
-import weatherheadnotify.tmori.com.weatherheadnotify.di.component.DaggerAppComponent;
-import weatherheadnotify.tmori.com.weatherheadnotify.di.module.AppModule;
+import weatherheadnotify.tmori.com.chathead.di.component.AppComponent;
+import weatherheadnotify.tmori.com.chathead.di.component.DaggerAppComponent;
+import weatherheadnotify.tmori.com.chathead.di.module.AppModule;
 
 /**
  * Created by mori on 11/3/16.

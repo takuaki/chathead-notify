@@ -1,4 +1,4 @@
-package weatherheadnotify.tmori.com.weatherheadnotify;
+package weatherheadnotify.tmori.com.chathead;
 
 import org.junit.After;
 import org.junit.Before;

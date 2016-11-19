@@ -1,4 +1,4 @@
-package weatherheadnotify.tmori.com.weatherheadnotify;
+package weatherheadnotify.tmori.com.chathead;
 
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import weatherheadnotify.tmori.com.weatherheadnotify.espressoIdling.MyIdlingResource;
+import weatherheadnotify.tmori.com.chathead.espressoIdling.MyIdlingResource;
 
 public class MainActivity extends AppCompatActivity implements ChatHead.ChatHeadStateListener {
 

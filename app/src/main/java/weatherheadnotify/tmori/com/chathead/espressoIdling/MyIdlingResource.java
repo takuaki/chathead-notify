@@ -1,4 +1,4 @@
-package weatherheadnotify.tmori.com.weatherheadnotify.espressoIdling;
+package weatherheadnotify.tmori.com.chathead.espressoIdling;
 
 import android.support.test.espresso.IdlingResource;
 
