@@ -1,13 +1,7 @@
 apply plugin: 'com.android.application'
 
 ext {
-    retrofitVersion = '2.1.0'
     supportLibVersion = '23.1.1'
-    rxjavaVersion = '1.1.6'
-    rxAndroidVersion = '1.2.1'
-    //dagger2
-    daggerVersion = '2.0.2'
-    daggerCompilerVersion = '2.0.2'
     annotationProcessorVersion = '1.0'
 
     //espresso
@@ -38,16 +32,6 @@ dependencies {
 
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
     compile "com.android.support:design:${supportLibVersion}"
-
-    //retrofit
-    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
-    //rxjava
-    compile "io.reactivex:rxjava:${rxjavaVersion}"
-    compile "io.reactivex:rxandroid:${rxAndroidVersion}"
-    //dagger2
-    compile "com.google.dagger:dagger:${daggerVersion}"
-    compile "com.google.dagger:dagger-compiler:${daggerCompilerVersion}"
-    compile "javax.annotation:jsr250-api:${annotationProcessorVersion}"
     //idling resource
     compile "com.android.support.test.espresso:espresso-idling-resource:${espressoVersion}"
 
