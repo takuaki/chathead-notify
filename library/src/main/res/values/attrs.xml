@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--declare-styleable name="WeatherLayout">
+        <attr name="weather_icon" format="reference"/>
+        <attr name="weather_text" format="string"/>
+    </declare-styleable-->
+
+    <declare-styleable name="ChatHeadLayout">
+        <attr name="chathead_icon" format="reference"/>
+        <attr name="chathead_text" format="string"/>
+        <attr name="chathead_text_color" format="color"/>
+    </declare-styleable>
+</resources>

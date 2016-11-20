@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 
 ext {
     supportLibVersion = '23.1.1'
-    annotationProcessorVersion = '1.0'
-
     //espresso
     espressoVersion = '2.2.2'
 }
@@ -29,6 +27,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile project(':library')
 
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
     compile "com.android.support:design:${supportLibVersion}"
