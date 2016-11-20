@@ -3,14 +3,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         class="weatherheadnotify.tmori.com.chathead.ChatHeadLayout"
-        android:background="#666666"
         android:id="@+id/weatherheadnotify"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="top|end"
         custom:chathead_icon="@mipmap/ic_launcher"
         custom:chathead_text="@string/text_custom_notify"
-        custom:chathead_text_color="@android:color/holo_blue_dark">
+        custom:chathead_text_color="@android:color/black">
 </weatherheadnotify.tmori.com.chathead.ChatHeadLayout>
 
 

@@ -24,9 +24,10 @@ public class MainActivity extends AppCompatActivity implements ChatHead.ChatHead
         mIdlingResource.setIdleState(false);
 
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-        ChatHead chatHead = new ChatHead(root, R.layout.chathead_layout, ChatHead.DURATION_LONG);
+        ChatHead chatHead = new ChatHead(root, R.layout.chathead_layout, ChatHead.DURATION_MEDIUM);
         chatHead.setHeadStateListener(this);
         chatHead.setLaunchActivity(this, LaunchableActivity.class);
+        chatHead.setBGM(false, R.raw.knock);
 
         chatHead.show();
 

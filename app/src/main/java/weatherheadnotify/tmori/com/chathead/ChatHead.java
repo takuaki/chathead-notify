@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RawRes;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -18,7 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.view.animation.DecelerateInterpolator;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 
@@ -41,6 +43,10 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
     private static final String TAG = ChatHead.class.getSimpleName();
     private static final int MSG_SHOW = 1;
     private static final int MSG_DISMISS = 2;
+
+    private static final int SHOW_ANIMATION_DURATION = 1000;
+    private static final int DISMISS_ANIMATION_DURATION = 500;
+
 
     /**
      * duration for show chathead
@@ -85,9 +91,12 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
 
     private ChatHeadStateListener mHeadStateListener;
 
-    private final
+
     @Duration
-    int duration;
+    private final int duration;
+    @RawRes
+    private int mBgmId = R.raw.knock;
+    private boolean mSilent = false;
 
     private ChatHeadLayout mView;
     private ViewGroup mTargetView;
@@ -98,8 +107,8 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
         mTargetView = findSuitableParent(view);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         mView = (ChatHeadLayout) inflater.inflate(res, mTargetView, false);
-
         mView.setOnClickListener(this);
+
     }
 
     public ChatHeadLayout getLayoutView() {
@@ -126,6 +135,14 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
             });
         }
     }
+
+    public void setBGM(boolean silent, @RawRes int resourceId) {
+        mSilent = silent;
+        if (!silent) {
+            mBgmId = resourceId;
+        }
+    }
+
 
     public void setLaunchApplication(Context con, String packageName) {
         PackageManager pm = con.getPackageManager();
@@ -158,8 +175,16 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
         ViewCompat.setTranslationX(mView, mView.getWidth());
         ViewCompat.animate(mView)
                 .translationX(0f)
-                .setInterpolator(new DecelerateInterpolator())
-                .setListener(new ViewPropertyAnimationEndListener() {
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .setListener(new ViewPropertyAnimatorListener() {
+                    @Override
+                    public void onAnimationStart(View view) {
+                        if (!mSilent) {
+                            MediaPlayer player = MediaPlayer.create(mContext,mBgmId);
+                            player.start();
+                        }
+                    }
+
                     @Override
                     public void onAnimationEnd(View view) {
                         final long durationMs;
@@ -174,8 +199,29 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
                         }
                         sHandler.sendMessageDelayed(Message.obtain(sHandler, MSG_DISMISS, ChatHead.this), durationMs);
                     }
+
+                    @Override
+                    public void onAnimationCancel(View view) {
+
+                    }
                 })
-                .setDuration(1000l)
+                /*.setListener(new ViewPropertyAnimationEndListener() {
+                    @Override
+                    public void onAnimationEnd(View view) {
+                        final long durationMs;
+                        if (duration > 0) {
+                            durationMs = duration;
+                        } else if (duration == DURATION_SHORT) {
+                            durationMs = LONG_REMAIN_SHORT;
+                        } else if (duration == DURATION_LONG) {
+                            durationMs = LONG_REMAIN_LONG;
+                        } else {
+                            durationMs = LONG_REMAIN_MEDIUM;
+                        }
+                        sHandler.sendMessageDelayed(Message.obtain(sHandler, MSG_DISMISS, ChatHead.this), durationMs);
+                    }
+                })*/
+                .setDuration(SHOW_ANIMATION_DURATION)
                 .start();
     }
 
@@ -187,25 +233,15 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
         ViewCompat.animate(mView)
                 .translationXBy(mView.getWidth())
                 .setInterpolator(new LinearInterpolator())
-                .setListener(new ViewPropertyAnimatorListener() {
-                    @Override
-                    public void onAnimationStart(View view) {
-
-                    }
-
+                .setListener(new ViewPropertyAnimationEndListener() {
                     @Override
                     public void onAnimationEnd(View view) {
                         //when end animation , remove view from mTargetView
                         mView.setVisibility(GONE);
                         mTargetView.removeView(mView);
                     }
-
-                    @Override
-                    public void onAnimationCancel(View view) {
-
-                    }
                 })
-                .setDuration(800l)
+                .setDuration(DISMISS_ANIMATION_DURATION)
                 .start();
     }
 
@@ -279,16 +315,19 @@ public class ChatHead implements ViewPropertyAnimatorListener, View.OnClickListe
     public void onAnimationCancel(View view) {
         Log.d(TAG, "onAnimationCancel");
     }
-}
 
-abstract class ViewPropertyAnimationEndListener implements ViewPropertyAnimatorListener {
-    @Override
-    public void onAnimationStart(View view) {
+    private abstract class ViewPropertyAnimationEndListener implements ViewPropertyAnimatorListener {
+        @Override
+        public void onAnimationStart(View view) {
+        }
+
+        abstract public void onAnimationEnd(View view);
+
+        @Override
+        public void onAnimationCancel(View view) {
+        }
     }
 
-    abstract public void onAnimationEnd(View view);
-
-    @Override
-    public void onAnimationCancel(View view) {
-    }
 }
+
+
